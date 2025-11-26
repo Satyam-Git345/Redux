@@ -1,4 +1,7 @@
 import { createStore } from "redux";
+import {myCreateStore} from './my-redux';
+import {products} from './Products'
+
 let initialState = {
   count: 0,
   name: "Satyam Shukla",
@@ -45,6 +48,8 @@ function reducer(state = initialState, action) {
 const store = createStore(reducer);
 const state = store.getState(); // return state object
 console.log(state);
+const mystore=myCreateStore();
+console.log(mystore)
 
 //run every time when state change
 store.subscribe(() => {

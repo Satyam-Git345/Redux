@@ -207,7 +207,7 @@
       });
     }
   }
-})({"lCTiO":[function(require,module,exports,__globalThis) {
+})({"6fvlz":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -215,7 +215,7 @@ var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "5e0263af3c14d121";
+module.bundle.HMR_BUNDLE_ID = "b8b3fac7918ef99e";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -713,90 +713,101 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"kTBnD":[function(require,module,exports,__globalThis) {
+},{}],"7X4LL":[function(require,module,exports,__globalThis) {
 var _redux = require("redux");
-var _myRedux = require("./my-redux");
 var _products = require("./Products");
 let initialState = {
-    count: 0,
-    name: "Satyam Shukla",
-    age: 20
+    products: (0, _products.productsList),
+    cartItems: [],
+    wishList: []
 };
-const INCREMENT = "post/increment";
-const DECREMENT = "post/decrement";
-const INCREMENTBY = "post/incrementby";
-const DECREMENTBY = "post/decrementby";
+const ADDCARTITEM = "cart/addItem";
+const REMOVECARTITEM = "cart/removeItem";
+const INCREASECARTQTY = "cart/increseqty";
 function reducer(state = initialState, action) {
     switch(action.type){
-        case INCREMENT:
-            return {
-                ...state,
-                count: state.count + 1
-            };
-        case DECREMENT:
-            return {
-                ...state,
-                count: state.count - 1
-            };
-        case INCREMENTBY:
-            return {
-                ...state,
-                count: state.count + action.payload
-            };
-        case DECREMENTBY:
-            return {
-                ...state,
-                count: state.count - action.payload
-            };
+        case ADDCARTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.products.find((product)=>product.id === ProductID);
+                if (found) return {
+                    ...state,
+                    cartItems: [
+                        ...state.cartItems,
+                        action.payload
+                    ]
+                };
+                return state;
+            }
+        case REMOVECARTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
+                console.log("REMOVECARTITEM", found);
+                if (found) {
+                    const deleted = state.cartItems.filter((cartitem)=>cartitem.ProductID !== ProductID);
+                    return {
+                        ...state,
+                        cartItems: deleted
+                    };
+                }
+                return state;
+            }
+        case INCREASECARTQTY:
+            {
+                const { ProductID } = action.payload;
+                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
+                if (found) return {
+                    ...state,
+                    cartItems: [
+                        ...cartItems
+                    ]
+                };
+            }
         default:
             return state;
     }
 }
-//   if (action.type === INCREMENT) {
-//     return { ...state, count: state.count + 1 };
-//   } else if (action.type === DECREMENT) {
-//     return { ...state, count: state.count - 1 };
-//   } else if (action.type === INCREMENTBY) {
-//     return { ...state, count: state.count + action.payload };
-//   } else if (action.type === DECREMENTBY) {
-//     return { ...state, count: state.count - action.payload };
-//   }
-//   return state;
-// }
-const store = (0, _redux.createStore)(reducer);
-const state = store.getState(); // return state object
-console.log(state);
-const mystore = (0, _myRedux.myCreateStore)();
-console.log(mystore);
-//run every time when state change
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+console.log("store", store);
 store.subscribe(()=>{
-    console.log("state", store.getState());
+    console.log("State", store.getState());
 });
 store.dispatch({
-    type: INCREMENT
+    type: ADDCARTITEM,
+    payload: {
+        ProductID: 12,
+        quanty: 1
+    }
 });
 store.dispatch({
-    type: DECREMENT
+    type: ADDCARTITEM,
+    payload: {
+        ProductID: 13,
+        quanty: 1
+    }
 });
 store.dispatch({
-    type: INCREMENTBY,
-    payload: 10
+    type: REMOVECARTITEM,
+    payload: {
+        ProductID: 12
+    }
 });
 store.dispatch({
-    type: DECREMENTBY,
-    payload: 2
-}); // initialState = reducer(initialState, { type: "post/increment" });
- // console.log(initialState)
- // initialState = reducer(initialState, { type: "post/increment" });
- // console.log(initialState)
- // initialState = reducer(initialState, { type: "post/DECREMENT" });
- // console.log(initialState)
- // initialState = reducer(initialState, { type: "post/INCREMENTBY", payload: 10 });
- // console.log(initialState)
- // initialState = reducer(initialState, { type: "post/DECREMENTBY", payload: 5 });
- // console.log(initialState)
+    type: REMOVECARTITEM,
+    payload: {
+        ProductID: 333
+    }
+});
+store.dispatch({
+    type: REMOVECARTITEM,
+    payload: {
+        ProductID: 13
+    }
+});
+console.log(store.getState());
 
-},{"redux":"7RvxM","./my-redux":"1T9yH","./Products":"3317x"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","./Products":"3317x"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1134,16 +1145,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"1T9yH":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "myCreateStore", ()=>myCreateStore);
-function myCreateStore() {
-    const store = {};
-    return store;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}],"3317x":[function(require,module,exports,__globalThis) {
+},{}],"3317x":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "productsList", ()=>productsList);
@@ -1390,6 +1392,6 @@ const productsList = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}]},["lCTiO","kTBnD"], "kTBnD", "parcelRequire1ed6", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}]},["6fvlz","7X4LL"], "7X4LL", "parcelRequire1ed6", {})
 
-//# sourceMappingURL=BuidOwnRedux.3c14d121.js.map
+//# sourceMappingURL=BuidOwnRedux.918ef99e.js.map

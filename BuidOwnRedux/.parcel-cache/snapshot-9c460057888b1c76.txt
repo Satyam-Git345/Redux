@@ -1,17 +1,22 @@
-45
+50
 83C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.mjs134085400432281190 0
-54C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist134085438961799389 1
+54C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist134086213988304508 1
+83C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.918ef99e.js.map134086213988304508 0
 84C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.d.ts134085400432618677 0
-60C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\index.html134085404143696510 0
+60C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\index.html134086160265450625 0
+61C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\my-redux.js134086145137780445 0
 62C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules134085400432849835 1
-87C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.mjs.map134085400432121568 0
-81C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\.package-lock.json134085400432849835 0
-60C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\script2.js134085409755765539 0
 73C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist134085400432580733 1
-59C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\script.js134085438960795098 0
+59C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\script.js134086157451294780 0
 91C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\cjs\redux.cjs.map134085400432121568 0
 62C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\package.json134085402997808458 0
 67C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\package-lock.json134085400432849835 0
+61C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\Products.js134086158557934225 0
+60C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\script2.js134085409755765539 0
+94C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\bindActionCreators.ts134085400432386435 0
+61C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\shopping.js134086214655959845 0
+87C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.mjs.map134085400432121568 0
+81C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\.package-lock.json134085400432849835 0
 99C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\symbol-observable.ts134085400432644739 0
 68C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux134085400432291157 1
 79C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\LICENSE.md134085400432121568 0
@@ -20,7 +25,6 @@
 87C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\createStore.ts134085400432461056 0
 72C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src134085400432481029 1
 91C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\applyMiddleware.ts134085400432366269 0
-94C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\bindActionCreators.ts134085400432386435 0
 91C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\combineReducers.ts134085400432416394 0
 83C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\compose.ts134085400432431014 0
 81C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\index.ts134085400432491104 0
@@ -28,7 +32,7 @@
 78C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils134085400432682924 1
 93C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\actionTypes.ts134085400432341146 0
 104C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\formatProdErrorMessage.ts134085400432471009 0
-79C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.3c14d121.js134085438961729509 0
+79C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.3c14d121.js134086158559613661 0
 90C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\isAction.ts134085400432501041 0
 95C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\isPlainObject.ts134085400432521015 0
 88C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\kindOf.ts134085400432540998 0
@@ -36,11 +40,12 @@
 89C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\utils\warning.ts134085400432682924 0
 89C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\types\actions.ts134085400432311178 0
 92C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\types\middleware.ts134085400432560619 0
+79C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.918ef99e.js134086213988254561 0
 90C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\types\reducers.ts134085400432570732 0
 87C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\src\types\store.ts134085400432644739 0
-83C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.3c14d121.js.map134085438961789404 0
+83C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\BuidOwnRedux.3c14d121.js.map134086158559752040 0
 77C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\cjs134085400432101400 1
 93C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.legacy-esm.js134085400431968022 0
 95C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\redux.browser.mjs.map134085400432101400 0
 87C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\node_modules\redux\dist\cjs\redux.cjs134085400431968022 0
-65C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\index.html134085428377498065 0
+65C:\Users\Asus\OneDrive\Desktop\Redux\BuidOwnRedux\dist\index.html134086168051231489 0
