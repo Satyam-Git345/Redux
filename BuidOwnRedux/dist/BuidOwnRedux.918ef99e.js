@@ -714,100 +714,209 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"7X4LL":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _redux = require("redux");
 var _products = require("./Products");
+var _cartReducer = require("./reducers/cartReducer");
+var _cartReducerDefault = parcelHelpers.interopDefault(_cartReducer);
+var _wishListReducer = require("./reducers/wishListReducer");
+var _wishListReducerDefault = parcelHelpers.interopDefault(_wishListReducer);
+var _productReducer = require("./reducers/productReducer");
+var _productReducerDefault = parcelHelpers.interopDefault(_productReducer);
 let initialState = {
     products: (0, _products.productsList),
     cartItems: [],
     wishList: []
 };
-const ADDCARTITEM = "cart/addItem";
-const REMOVECARTITEM = "cart/removeItem";
-const INCREASECARTQTY = "cart/increseqty";
-function reducer(state = initialState, action) {
-    switch(action.type){
-        case ADDCARTITEM:
-            {
-                const { ProductID } = action.payload;
-                const found = state.products.find((product)=>product.id === ProductID);
-                if (found) return {
-                    ...state,
-                    cartItems: [
-                        ...state.cartItems,
-                        action.payload
-                    ]
-                };
-                return state;
-            }
-        case REMOVECARTITEM:
-            {
-                const { ProductID } = action.payload;
-                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
-                console.log("REMOVECARTITEM", found);
-                if (found) {
-                    const deleted = state.cartItems.filter((cartitem)=>cartitem.ProductID !== ProductID);
-                    return {
-                        ...state,
-                        cartItems: deleted
-                    };
-                }
-                return state;
-            }
-        case INCREASECARTQTY:
-            {
-                const { ProductID } = action.payload;
-                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
-                if (found) return {
-                    ...state,
-                    cartItems: [
-                        ...cartItems
-                    ]
-                };
-            }
-        default:
-            return state;
-    }
-}
+const reducer = (0, _redux.combineReducers)({
+    products: (0, _productReducerDefault.default),
+    wishlists: (0, _wishListReducerDefault.default),
+    carts: (0, _cartReducerDefault.default)
+});
+// function reducer(state = initialState, action) {
+//   switch (action.type) {
+//     case ADDCARTITEM: {
+//       const { ProductID } = action.payload;
+//       const found = state.products.find((product) => product.id === ProductID);
+//       if (found) {
+//         return { ...state, cartItems: [...state.cartItems, action.payload] };
+//       }
+//       return state;
+//     }
+//     case REMOVECARTITEM: {
+//       const { ProductID } = action.payload;
+//       const found = state.cartItems.find(
+//         (cartitem) => cartitem.ProductID === ProductID
+//       );
+//       if (found) {
+//         const deleted = state.cartItems.filter(
+//           (cartitem) => cartitem.ProductID !== ProductID
+//         );
+//         return { ...state, cartItems: deleted };
+//       }
+//       return state;
+//     }
+//     case INCREASECARTQTY: {
+//       const { ProductID } = action.payload;
+//       const found = state.cartItems.find(
+//         (cartitem) => cartitem.ProductID === ProductID
+//       );
+//       if (found) {
+//         return {
+//           ...state,
+//           cartItems: state.cartItems.map((cartitem) => {
+//             if (cartitem.ProductID === ProductID) {
+//               return { ...cartitem, quanty: cartitem.quanty + 1 };
+//             }
+//             return cartitem;
+//           }),
+//         };
+//       } else {
+//         console.log("Item not present in cart");
+//       }
+//     }
+//     case DECREASECARTQTY: {
+//       const { ProductID } = action.payload;
+//       const found = state.cartItems.find(
+//         (cartitem) => cartitem.ProductID === ProductID
+//       );
+//       if (found && found.quanty > 0) {
+//         return {
+//           ...state,
+//           cartItems: state.cartItems.map((cartitem) => {
+//             if (cartitem.ProductID === ProductID) {
+//               return { ...cartitem, quanty: cartitem.quanty - 1 };
+//             }
+//             return cartitem;
+//           }),
+//         };
+//       } else {
+//         console.log("TRhere is only one item in cart ");
+//       }
+//     }
+//     case ADDWISHLISTITEM: {
+//       const { ProductID } = action.payload;
+//       const found = state.products.find((product) => product.id === ProductID);
+//       if (found) {
+//         return { ...state, wishList: [...state.wishList, action.payload] };
+//       }
+//       return state;
+//     }
+//     case REMOVEWISHLISTITEM: {
+//        const { ProductID } = action.payload;
+//       const found = state.wishList.find(
+//         (cartitem) => cartitem.ProductID === ProductID
+//       );
+//       if (found) {
+//         const deleted = state.wishList.filter(
+//           (cartitem) => cartitem.ProductID !== ProductID
+//         );
+//         return { ...state, wishList: deleted };
+//       }
+//       return state;
+//     }
+//     default: {
+//       return state;
+//     }
+//   }
+// }
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 console.log("store", store);
 store.subscribe(()=>{
     console.log("State", store.getState());
 });
 store.dispatch({
-    type: ADDCARTITEM,
+    type: (0, _cartReducer.ADDCARTITEM),
     payload: {
         ProductID: 12,
         quanty: 1
     }
 });
 store.dispatch({
-    type: ADDCARTITEM,
+    type: (0, _cartReducer.ADDCARTITEM),
     payload: {
         ProductID: 13,
         quanty: 1
     }
 });
 store.dispatch({
-    type: REMOVECARTITEM,
+    type: (0, _cartReducer.ADDCARTITEM),
+    payload: {
+        ProductID: 1,
+        quanty: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.ADDCARTITEM),
+    payload: {
+        ProductID: 5,
+        quanty: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.REMOVECARTITEM),
     payload: {
         ProductID: 12
     }
 });
 store.dispatch({
-    type: REMOVECARTITEM,
+    type: (0, _cartReducer.INCREASECARTQTY),
     payload: {
-        ProductID: 333
+        ProductID: 1
     }
 });
 store.dispatch({
-    type: REMOVECARTITEM,
+    type: (0, _cartReducer.INCREASECARTQTY),
     payload: {
-        ProductID: 13
+        ProductID: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.INCREASECARTQTY),
+    payload: {
+        ProductID: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.DECREASECARTQTY),
+    payload: {
+        ProductID: 1
+    }
+});
+// store.dispatch({ type: DECREASECARTQTY, payload: { ProductID: 12 } });
+store.dispatch({
+    type: (0, _cartReducer.DECREASECARTQTY),
+    payload: {
+        ProductID: 1
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.ADDWISHLISTITEM),
+    payload: {
+        ProductID: 1
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.ADDWISHLISTITEM),
+    payload: {
+        ProductID: 2
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.ADDWISHLISTITEM),
+    payload: {
+        ProductID: 3
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.REMOVEWISHLISTITEM),
+    payload: {
+        ProductID: 1
     }
 });
 console.log(store.getState());
 
-},{"redux":"7RvxM","./Products":"3317x"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","./Products":"3317x","./reducers/cartReducer":"itzcD","./reducers/wishListReducer":"29NN5","./reducers/productReducer":"lBQ0j","@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1392,6 +1501,143 @@ const productsList = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}]},["6fvlz","7X4LL"], "7X4LL", "parcelRequire1ed6", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}],"itzcD":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ADDCARTITEM", ()=>ADDCARTITEM);
+parcelHelpers.export(exports, "REMOVECARTITEM", ()=>REMOVECARTITEM);
+parcelHelpers.export(exports, "INCREASECARTQTY", ()=>INCREASECARTQTY);
+parcelHelpers.export(exports, "DECREASECARTQTY", ()=>DECREASECARTQTY);
+var _products = require("../Products");
+let initialState = {
+    cartItems: [],
+    products: (0, _products.productsList)
+};
+const ADDCARTITEM = "cart/addItem";
+const REMOVECARTITEM = "cart/removeItem";
+const INCREASECARTQTY = "cart/increseqty";
+const DECREASECARTQTY = "cart/decreaseqty";
+const cartReducer = (state = initialState, action)=>{
+    switch(action.type){
+        case ADDCARTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.products.find((product)=>product.id === ProductID);
+                if (found) return {
+                    ...state,
+                    cartItems: [
+                        ...state.cartItems,
+                        action.payload
+                    ]
+                };
+                return state;
+            }
+        case REMOVECARTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
+                if (found) {
+                    const deleted = state.cartItems.filter((cartitem)=>cartitem.ProductID !== ProductID);
+                    return {
+                        ...state,
+                        cartItems: deleted
+                    };
+                }
+                return state;
+            }
+        case INCREASECARTQTY:
+            {
+                const { ProductID } = action.payload;
+                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
+                if (found) return {
+                    ...state,
+                    cartItems: state.cartItems.map((cartitem)=>{
+                        if (cartitem.ProductID === ProductID) return {
+                            ...cartitem,
+                            quanty: cartitem.quanty + 1
+                        };
+                        return cartitem;
+                    })
+                };
+                else console.log("Item not present in cart");
+            }
+        case DECREASECARTQTY:
+            {
+                const { ProductID } = action.payload;
+                const found = state.cartItems.find((cartitem)=>cartitem.ProductID === ProductID);
+                if (found && found.quanty > 0) return {
+                    ...state,
+                    cartItems: state.cartItems.map((cartitem)=>{
+                        if (cartitem.ProductID === ProductID) return {
+                            ...cartitem,
+                            quanty: cartitem.quanty - 1
+                        };
+                        return cartitem;
+                    })
+                };
+                else console.log("TRhere is only one item in cart ");
+            }
+        default:
+            return state;
+    }
+};
+exports.default = cartReducer;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ","../Products":"3317x"}],"29NN5":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ADDWISHLISTITEM", ()=>ADDWISHLISTITEM);
+parcelHelpers.export(exports, "REMOVEWISHLISTITEM", ()=>REMOVEWISHLISTITEM);
+var _products = require("../Products");
+let initialState = {
+    wishList: [],
+    products: (0, _products.productsList)
+};
+const ADDWISHLISTITEM = "wishlist/addItem";
+const REMOVEWISHLISTITEM = "wishlist/removeItem";
+const wishListReducer = (state = initialState, action)=>{
+    switch(action.type){
+        case ADDWISHLISTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.products.find((product)=>product.id === ProductID);
+                if (found) return {
+                    ...state,
+                    wishList: [
+                        ...state.wishList,
+                        action.payload
+                    ]
+                };
+                return state;
+            }
+        case REMOVEWISHLISTITEM:
+            {
+                const { ProductID } = action.payload;
+                const found = state.wishList.find((cartitem)=>cartitem.ProductID === ProductID);
+                if (found) {
+                    const deleted = state.wishList.filter((cartitem)=>cartitem.ProductID !== ProductID);
+                    return {
+                        ...state,
+                        wishList: deleted
+                    };
+                }
+                return state;
+            }
+        default:
+            return state;
+    }
+};
+exports.default = wishListReducer;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ","../Products":"3317x"}],"lBQ0j":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _products = require("../Products");
+const productReducer = (state = (0, _products.productsList), action)=>{
+    return state;
+};
+exports.default = productReducer;
+
+},{"../Products":"3317x","@parcel/transformer-js/src/esmodule-helpers.js":"0MJlQ"}]},["6fvlz","7X4LL"], "7X4LL", "parcelRequire1ed6", {})
 
 //# sourceMappingURL=BuidOwnRedux.918ef99e.js.map
