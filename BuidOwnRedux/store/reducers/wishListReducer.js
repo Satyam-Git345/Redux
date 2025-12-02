@@ -1,10 +1,28 @@
-import { productsList } from "../Products";
+import { productsList } from "../../Products";
 let initialState = {
   wishList: [],
   products:productsList
 }
-export const ADDWISHLISTITEM = "wishlist/addItem";
-export const REMOVEWISHLISTITEM = "wishlist/removeItem";
+const ADDWISHLISTITEM = "wishlist/addItem";
+const REMOVEWISHLISTITEM = "wishlist/removeItem";
+
+
+//Action Creators
+
+export const AddwishListTiem=(ProductID)=>{
+    return {
+        type:ADDWISHLISTITEM,
+        payload:{ProductID}
+    }
+}
+
+export const RemovewishListTiem=(ProductID)=>{
+    return {
+        type:REMOVEWISHLISTITEM,
+        payload:{ProductID}
+    }
+}
+
 
 const wishListReducer = (state = initialState, action) => {
   switch (action.type) {

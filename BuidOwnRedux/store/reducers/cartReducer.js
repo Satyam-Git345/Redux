@@ -1,13 +1,38 @@
-import { productsList } from "../Products";
+import { productsList } from "../../Products";
 let initialState = {
   cartItems: [],
-  products:productsList
+  products: productsList,
 };
+const ADDCARTITEM = "cart/addItem";
+const REMOVECARTITEM = "cart/removeItem";
+const INCREASECARTQTY = "cart/increseqty";
+const DECREASECARTQTY = "cart/decreaseqty";
 
-export const ADDCARTITEM = "cart/addItem";
-export const REMOVECARTITEM = "cart/removeItem";
-export const INCREASECARTQTY = "cart/increseqty";
-export const DECREASECARTQTY = "cart/decreaseqty";
+//Action Creators
+export const increaseCartItemQty = (ProductID, quanty = 1) => {
+  return {
+    type: INCREASECARTQTY,
+    payload: { ProductID, quanty },
+  };
+};
+export const decreaseCartItemQty = (ProductID, quanty = 1) => {
+  return {
+    type: DECREASECARTQTY,
+    payload: { ProductID, quanty },
+  };
+};
+export const AddNewCartItem = (ProductID, quanty = 1) => {
+  return {
+    type: ADDCARTITEM,
+    payload: { ProductID, quanty },
+  };
+};
+export const RemoveCartItem = (ProductID) => {
+  return {
+    type: ADDCARTITEM,
+    payload: { ProductID },
+  };
+};
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -50,6 +75,7 @@ const cartReducer = (state = initialState, action) => {
         };
       } else {
         console.log("Item not present in cart");
+        return state;
       }
     }
     case DECREASECARTQTY: {
